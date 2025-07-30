@@ -1,0 +1,9 @@
+#Object Files
+*.o 
+
+##executables
+*.out
+*.exe 
+
+##complied source
+minishell
