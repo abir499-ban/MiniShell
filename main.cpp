@@ -26,10 +26,15 @@ int main(){
         exit(1);
     }else if(pid == 0){
         cout<<"Child process with pid "<<pid<<" and "<<getpid()<<" with command : "<<args[0]<<endl;
-        execvp(args[0] , args.data());
+        if(execvp(args[0] , args.data()) == -1){
+            perror("Error executing command");
+            freeArgs(args);
+            exit(1);
+        }
     }else{
         cout<<"Parent process"<<getpid()<<endl;
         wait(NULL);
+        freeArgs(args);
     }
 
     
