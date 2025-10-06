@@ -16,7 +16,7 @@ int main()
 
         if (input == "exit")
         {
-            exit(0);
+            break;
         }
 
         vector<char *> args = parseInput(input);
@@ -36,7 +36,7 @@ int main()
             {
                 perror("Error executing command");
                 freeArgs(args);
-                //exit(1);
+                exit(1);
             }
         }
         else
@@ -46,4 +46,5 @@ int main()
             freeArgs(args);
         }
     }
+    exit(0);
 }
