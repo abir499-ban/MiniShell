@@ -3,6 +3,7 @@
 #include <iostream>
 #include <cstring>
 #include "parser.h"
+#include "cd.h"
 
 using namespace std;
 
@@ -20,6 +21,12 @@ int main()
         }
 
         vector<char *> args = parseInput(input);
+
+        if(strcmp(args[0] , "cd") == 0){
+            handle_cd_cmd(args);
+            freeArgs(args);
+            continue;
+        }
 
         pid_t pid = fork();
 
