@@ -1,24 +1,26 @@
 # Compiler and flags
 CXX = g++
-CXXFLAGS = -Wall -g
+CXXFLAGS = -Wall -g -Ibuilt
 
 # Executable name
 TARGET = minishell
 
-# Source and object files
-SRC = main.cpp parser.cpp
+# Source files
+SRC = main.cpp parser.cpp built/cd.cpp
+
+# Object files
 OBJ = $(SRC:.cpp=.o)
 
 # Default build target
 all: $(TARGET)
 
-# Link object files to make the executable
+# Link object files
 $(TARGET): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-# Compile .cpp files to .o files
+# Compile any .cpp to corresponding .o
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $<
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Clean build artifacts
 clean:
