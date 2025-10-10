@@ -27,7 +27,9 @@ System Calls used till now:
 
 4. `chdir()` : Changes the current working directory of the calling process.
 
----------Built-in Commands / Shell primitve commands that are implemented------------------
+---------
+Built-in Commands / Shell primitve commands that are implemented
+
 `cd`
 `history`
 
