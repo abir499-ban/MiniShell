@@ -25,6 +25,12 @@ System Calls used till now:
 
 3. `wait()` : Pauses the parent process until any one child process terminates.
 
+4. `chdir()` : Changes the current working directory of the calling process.
+
+---------Built-in Commands / Shell primitve commands that are implemented------------------
+`cd`
+`history`
+
 ------------------------------------------
 Commands to run:
 
