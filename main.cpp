@@ -4,11 +4,13 @@
 #include <cstring>
 #include "parser.h"
 #include "cd.h"
+#include "history.h"
 
 using namespace std;
 
 int main()
 {
+    History h = History();
     while (true)
     {
         cout << "Welcome to MiniShell>" << endl;
@@ -22,8 +24,14 @@ int main()
 
         vector<char *> args = parseInput(input);
 
+        h.addCmdtoHistory(args[0]);
+
         if(strcmp(args[0] , "cd") == 0){
             handle_cd_cmd(args);
+            freeArgs(args);
+            continue;
+        }else if(strcmp(args[0] , "history") == 0){
+            h.printHistory();
             freeArgs(args);
             continue;
         }
