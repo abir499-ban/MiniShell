@@ -7,6 +7,8 @@ Uptil these things have been implemented:
 1. Input Parsing.
 2. Process creation.
 3. Parent and Child Process Handling.
+4. Built-in Commands like `cd` and `history`.
+5. Command Chaining using `;` , `&&` , `||`
 
 ----------------------------------
 Terminologies related what I have done till now:
