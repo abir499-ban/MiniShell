@@ -1,0 +1,7 @@
+hello myself Abir Banerjee. I am a software engineer.
+I am from IIIT Bhubaneshwar.
+I am in pre final year of my Btech in Computer Science.
+I love diving deep in backend development , systems , software design , best coding practices , databases , distributed systems , operating systems etc.
+I also love solving algorithmic problems on patforms like Leetcode , GFG , Codechef, side by side mastering Data Structures and Algorithms.
+I also love to explore new programming languages , and programming paradigms.
+Beside coding , I love watching cricket , writing blogs on it , and watching movies.
