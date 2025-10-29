@@ -5,7 +5,9 @@
 #include "parser.h"
 #include "cd.h"
 #include "history.h"
+#include <cstdio>
 #include "preParser/preParser.h"
+#include "redirect/redirect.h"
 
 using namespace std;
 
@@ -49,6 +51,10 @@ int main()
                 continue;
             }
 
+            
+            bool res = handle_redirection(args);
+
+
             pid_t pid = fork();
 
             if (pid < 0)
@@ -58,9 +64,14 @@ int main()
                 lastExitCode = 1;
                 // exit(1);
             }
+            else if (!res){
+                perror("redirection failed");
+                freeArgs(args);
+                lastExitCode = 1;
+            }
             else if (pid == 0)
             {
-                cout << "Child process with parent pid " << getppid() << " and pid " << getpid() << " with command : " << args[0] << endl;
+                //cout << "Child process with parent pid " << getppid() << " and pid " << getpid() << " with command : " << args[0] << endl;
                 if (execvp(args[0], args.data()) == -1)
                 {
                     perror("Error executing command");
@@ -70,7 +81,7 @@ int main()
             }
             else
             {
-                cout << "Parent process" << getpid() << endl;
+                //cout << "Parent process" << getpid() << endl;
                 int status;
                 waitpid(pid , &status , 0);
                 lastExitCode = WEXITSTATUS(status);

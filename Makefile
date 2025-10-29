@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -g -Ibuilt
 TARGET = minishell
 
 # Source files
-SRC = main.cpp parser.cpp built/cd.cpp built/history.cpp preParser/preParser.cpp
+SRC = main.cpp parser.cpp built/cd.cpp built/history.cpp preParser/preParser.cpp redirect/redirect.cpp
 
 # Object files
 OBJ = $(SRC:.cpp=.o)
