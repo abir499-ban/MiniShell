@@ -52,8 +52,7 @@ int main()
             }
 
             
-            bool res = handle_redirection(args);
-
+            
 
             pid_t pid = fork();
 
@@ -64,13 +63,14 @@ int main()
                 lastExitCode = 1;
                 // exit(1);
             }
-            else if (!res){
-                perror("redirection failed");
-                freeArgs(args);
-                lastExitCode = 1;
-            }
             else if (pid == 0)
             {
+                bool res = handle_redirection(args);
+                if(!res){
+                    perror("Redirection failed");
+                    freeArgs(args);
+                    exit(1);
+                }
                 //cout << "Child process with parent pid " << getppid() << " and pid " << getpid() << " with command : " << args[0] << endl;
                 if (execvp(args[0], args.data()) == -1)
                 {
