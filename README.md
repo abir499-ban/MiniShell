@@ -47,9 +47,3 @@ Commands to run:
    ```
 -----------------------------------------
 
-Things to be implemented:
-1. Backgroung Jobs
-2. Input / Output Redirection
-3. Piping
-
-   WIP......................................
