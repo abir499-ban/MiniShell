@@ -28,7 +28,24 @@ Syntax: `dup2(oldfd, newfd)` : duplicates the file descriptor oldfd onto newfd.
 
 Next any function or system call that originally prints or writes to the resource pointed by newfd will now do it to the resource pointed by oldfd, as now newfd points to the same resource as oldfd.
 
-### Closinf FDs:
+### Closing FDs:
 doing `close(fd)` will tell the kernel that this descriptor pointing to a open resource is to be closed.
+
+### Terminal Redirection Examples:
+
+1. **Truncated Write to a File**
+   In this operation, terminal writes to a file, if anything was written previously it removes and writes from beginning.
+   e.g `ls > output.txt` : this will print the output of ls to the file output.txt
+
+   
+3. **Read from a file**
+   In this operation, the terminal reads from a file. It requires duplicating the file descriptor of an open file to `STDIN_FILENO`, so that the standrard input comes from the open file.
+   e.g `cat < logs.yml`: reads the file and prints it to terminal.
+
+   
+3. **Append to a file**
+   In this operation, the terminal appends to a file. If a file is not created it crates , and writes to it, else appends content to it, without truncating the file.
+   e,g : `cat >> file.txt`
+   
 
 
