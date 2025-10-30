@@ -9,6 +9,7 @@ Uptil these things have been implemented:
 3. Parent and Child Process Handling.
 4. Built-in Commands like `cd` and `history`.
 5. Command Chaining using `;` , `&&` , `||`
+6. IO redirection from terminal to file. Read more about [here](https://github.com/abir499-ban/MiniShell/blob/main/fileRedirection.md)
 
 ----------------------------------
 Terminologies related what I have done till now:
